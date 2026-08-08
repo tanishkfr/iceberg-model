@@ -34,29 +34,63 @@ export interface IcebergNode {
 export interface Insight {
   title: string
   statement: string
-  support?: string
+  sublines?: string[]
 }
 
 export const INSIGHTS: Insight[] = [
   {
     title: 'Control of Attention',
     statement: 'Control of attention is more powerful than control of truth.',
+    sublines: [
+      'What people see defines what they believe matters',
+      'Ignored realities effectively disappear',
+      'Attention shapes public understanding more than facts',
+    ],
+  },
+  {
+    title: 'Passive Consumption',
+    statement: 'When information is easy to consume, critical thinking fades.',
+    sublines: [
+      'Simple narratives discourage deeper questioning',
+      'Repetition builds acceptance without reflection',
+      'People react to opinions instead of understanding realities',
+    ],
   },
   {
     title: 'Perception Becomes Reality',
     statement: 'When perception is controlled, reality becomes negotiable.',
-  },
-  {
-    title: 'Erasure Starts with Invisibility',
-    statement: 'People disappear from narratives before they disappear from reality.',
+    sublines: [
+      'Visible order is accepted as real progress',
+      'Lived experience is overridden by presented narratives',
+      'Outcomes follow perception, not ground truth',
+    ],
   },
   {
     title: 'Omission Shapes Truth',
-    statement: 'Media doesn’t need to lie to mislead — selection is enough.',
+    statement: 'The system doesn’t need to lie — it shapes truth by deciding what to show.',
+    sublines: [
+      'What is excluded matters as much as what is shown',
+      'Partial visibility creates controlled understanding',
+      'Framing determines interpretation',
+    ],
+  },
+  {
+    title: 'Erasure Through Invisibility',
+    statement: 'People disappear from narratives before they disappear from reality.',
+    sublines: [
+      'Lack of visibility reduces empathy',
+      'Unseen issues face less resistance',
+      'Absence makes harm easier to justify',
+    ],
   },
   {
     title: 'Visual Fix = Perceived Fix',
     statement: 'What looks fixed is treated as solved.',
+    sublines: [
+      'Aesthetic improvement masks structural issues',
+      'Clean visuals signal false progress',
+      'Presentation outweighs lived outcomes',
+    ],
   },
 ]
 

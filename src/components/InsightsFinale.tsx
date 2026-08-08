@@ -6,14 +6,13 @@ import { INSIGHTS } from '../data/iceberg'
  * The deepest layer is deliberately not a node list.
  *
  * Arrival is held for a beat before anything appears, then the statements
- * arrive one at a time and stay. Nothing here is clickable — by this point the
- * work of exploring is over and the only thing left to do is read.
+ * arrive one at a time and stay.
  */
 
 /** Silence on arrival, before the first line. */
-const HOLD_MS = 900
-/** Gap between statements. Slow enough to read one before the next lands. */
-const STEP_MS = 950
+const HOLD_MS = 600
+/** Gap between statements. */
+const STEP_MS = 800
 
 export function InsightsFinale({ active }: { active: boolean }) {
   const [shown, setShown] = useState(0)
@@ -37,28 +36,30 @@ export function InsightsFinale({ active }: { active: boolean }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 1.2, ease: 'easeInOut' }}
-      className="pointer-events-none fixed inset-0 z-40 flex items-center"
+      className="fixed inset-0 z-40 flex items-center overflow-y-auto py-12 pointer-events-auto"
     >
       {/* Enough veil to hold the type, not enough to erase the berg behind it. */}
-      <div className="absolute inset-0 -z-10 bg-[#04070a]/55" />
+      <div className="fixed inset-0 -z-10 bg-[#04070a]/65 pointer-events-none" />
 
-      <div className="w-full max-w-[820px] pr-8 pl-[168px]">
-        <div className="flex flex-col gap-9">
+      <div className="w-full max-w-[860px] pr-8 pl-[168px] my-auto">
+        <div className="flex flex-col gap-7">
           {INSIGHTS.map((insight, i) => (
             <motion.div
               key={insight.title}
               initial={{ opacity: 0, y: 12 }}
               animate={shown > i ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-              transition={{ duration: 0.9, ease: [0.22, 0.61, 0.36, 1] }}
+              transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
             >
-              <div className="label text-accent/70">{insight.title}</div>
-              <p className="display mt-2.5 text-[clamp(19px,2.05vw,27px)] leading-[1.38] text-ice-hi">
+              <div className="label text-accent/80 font-semibold tracking-wider">{insight.title}</div>
+              <p className="display mt-1.5 text-[clamp(17px,1.75vw,23px)] leading-[1.35] text-ice-hi font-normal">
                 {insight.statement}
               </p>
-              {insight.support && (
-                <p className="mt-2 font-serif text-[13.5px] leading-relaxed font-light text-ice-lo/70">
-                  {insight.support}
-                </p>
+              {insight.sublines && insight.sublines.length > 0 && (
+                <ul className="mt-2 space-y-1 pl-4 list-disc marker:text-accent/60 text-[12.5px] leading-relaxed text-ice-lo/75 font-mono">
+                  {insight.sublines.map((line, sIdx) => (
+                    <li key={sIdx}>{line}</li>
+                  ))}
+                </ul>
               )}
             </motion.div>
           ))}
