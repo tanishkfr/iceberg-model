@@ -36,13 +36,13 @@ export function InsightsFinale({ active }: { active: boolean }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 1.2, ease: 'easeInOut' }}
-      className="fixed inset-0 z-40 flex items-center overflow-y-auto py-12 pointer-events-auto"
+      className="fixed inset-0 z-40 overflow-y-auto pt-16 pb-36 pointer-events-auto"
     >
-      {/* Enough veil to hold the type, not enough to erase the berg behind it. */}
-      <div className="fixed inset-0 -z-10 bg-[#04070a]/65 pointer-events-none" />
+      {/* Dark overlay backdrop */}
+      <div className="fixed inset-0 -z-10 bg-[#04070a]/70 pointer-events-none backdrop-blur-[2px]" />
 
-      <div className="w-full max-w-[860px] pr-8 pl-[168px] my-auto">
-        <div className="flex flex-col gap-7">
+      <div className="w-full max-w-[840px] pr-8 pl-[168px] mx-auto">
+        <div className="flex flex-col gap-6">
           {INSIGHTS.map((insight, i) => (
             <motion.div
               key={insight.title}
@@ -50,12 +50,12 @@ export function InsightsFinale({ active }: { active: boolean }) {
               animate={shown > i ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
               transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
             >
-              <div className="label text-accent/80 font-semibold tracking-wider">{insight.title}</div>
-              <p className="display mt-1.5 text-[clamp(17px,1.75vw,23px)] leading-[1.35] text-ice-hi font-normal">
+              <div className="label text-accent/85 font-semibold tracking-wider">{insight.title}</div>
+              <p className="display mt-1 text-[clamp(16px,1.6vw,22px)] leading-[1.35] text-ice-hi font-normal">
                 {insight.statement}
               </p>
               {insight.sublines && insight.sublines.length > 0 && (
-                <ul className="mt-2 space-y-1 pl-4 list-disc marker:text-accent/60 text-[12.5px] leading-relaxed text-ice-lo/75 font-mono">
+                <ul className="mt-1.5 space-y-0.5 pl-4 list-disc marker:text-accent/60 text-[12px] leading-relaxed text-ice-lo/75 font-mono">
                   {insight.sublines.map((line, sIdx) => (
                     <li key={sIdx}>{line}</li>
                   ))}
