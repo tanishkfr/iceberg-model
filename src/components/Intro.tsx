@@ -16,15 +16,20 @@ export function Intro({ visible, hint }: { visible: boolean; hint: string }) {
             transition={{ duration: 1.4, ease: [0.22, 0.61, 0.36, 1], delay: 0.3 }}
             className="pointer-events-none fixed top-[9vh] left-[124px] z-20 max-w-[420px]"
           >
-            <h1 className="display text-[clamp(30px,3.1vw,42px)] leading-[1.16] text-[#20303a]">
-              What you see
-              <br />
-              isn’t the whole story.
+            <h1 className="display text-[clamp(28px,2.9vw,40px)] leading-[1.18] font-normal text-[#1a2832]">
+              How does the government shape public perception?
             </h1>
-            <p className="mt-4 max-w-[300px] font-serif text-[14px] leading-[1.6] font-light text-[#41525c]">
-              Explore the layers beneath the surface to understand how perception
-              is shaped.
+            <p className="mt-3.5 max-w-[340px] font-serif text-[14px] leading-[1.6] font-light text-[#3d505c]">
+              Explore the layers beneath the surface to understand how visibility, narratives, and infrastructure are controlled.
             </p>
+            <div className="mt-5 pt-3.5 border-t border-[#20303a]/15">
+              <span className="label block text-[9.5px] tracking-[0.18em] text-[#485c69]/80 uppercase font-mono">
+                Project By
+              </span>
+              <span className="mt-1 block font-mono text-[11px] tracking-wider text-[#20303a] font-medium">
+                Tanishk · Anushka · Arnav · Janya · Nathan
+              </span>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
