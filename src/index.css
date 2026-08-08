@@ -105,3 +105,115 @@ body {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* Environment Animations */
+@keyframes pass-cloud-a {
+  0% { transform: translateX(-600px); }
+  100% { transform: translateX(1800px); }
+}
+
+@keyframes pass-cloud-b {
+  0% { transform: translateX(-800px); }
+  100% { transform: translateX(1600px); }
+}
+
+@keyframes ship-rock-a {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(1.2px) rotate(0.8deg); }
+}
+
+@keyframes ship-rock-b {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(1.0px) rotate(-0.7deg); }
+}
+
+@keyframes sub-cruise {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-45px, 15px); }
+}
+
+@keyframes headlight-beam {
+  0%, 100% { opacity: 0.12; }
+  50% { opacity: 0.24; }
+}
+
+@keyframes fish-group-a {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(35px, -12px); }
+}
+
+@keyframes fish-group-b {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-40px, 10px); }
+}
+
+@keyframes jelly-pulse {
+  0%, 100% { transform: translateY(0) scale(1, 1); opacity: 0.45; }
+  50% { transform: translateY(-22px) scale(1.05, 0.92); opacity: 0.7; }
+}
+
+@keyframes kelp-sway-left {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(3.5deg); }
+}
+
+@keyframes kelp-sway-right {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-4deg); }
+}
+
+@keyframes biolum-pulse {
+  0%, 100% { opacity: 0.2; transform: translateY(0px) scale(0.9); }
+  50% { opacity: 0.75; transform: translateY(-18px) scale(1.25); }
+}
+
+.cloud-pass-slow {
+  animation: pass-cloud-a 140s linear infinite;
+}
+
+.cloud-pass-slower {
+  animation: pass-cloud-b 200s linear infinite;
+}
+
+.ship-anim-a {
+  animation: ship-rock-a 7s ease-in-out infinite;
+}
+
+.ship-anim-b {
+  animation: ship-rock-b 9s ease-in-out infinite;
+}
+
+.sub-anim {
+  animation: sub-cruise 28s ease-in-out infinite;
+}
+
+.beam-pulse {
+  animation: headlight-beam 5s ease-in-out infinite;
+}
+
+.fish-swim-a {
+  animation: fish-group-a 16s ease-in-out infinite;
+}
+
+.fish-swim-b {
+  animation: fish-group-b 20s ease-in-out infinite;
+}
+
+.jelly-anim {
+  animation: jelly-pulse 11s ease-in-out infinite;
+}
+
+.kelp-sway-l {
+  transform-origin: bottom center;
+  animation: kelp-sway-left 9s ease-in-out infinite;
+}
+
+.kelp-sway-r {
+  transform-origin: bottom center;
+  animation: kelp-sway-right 12s ease-in-out infinite;
+}
+
+.biolum-anim {
+  animation: biolum-pulse 6s ease-in-out infinite;
+}
+

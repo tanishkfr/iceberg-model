@@ -1,4 +1,5 @@
 import { WATERLINE } from '../lib/geometry'
+import { Environment } from './Environment'
 
 /**
  * Sky, water and the ambient motion that makes the opening feel ordinary.
@@ -67,6 +68,9 @@ export function Ocean() {
       <rect x="-3000" y="-2400" width="7600" height={WATERLINE + 2400} fill="url(#sun)" />
       <rect x="-3000" y={WATERLINE} width="7600" height="6000" fill="url(#water)" />
 
+      {/* Dynamic environmental background: clouds, ships, fish, submarine, vegetation */}
+      <Environment />
+
       {/* Cloud banks: blurred masses, never discrete shapes. Positioned in the
           sky band that is actually in frame at the surface (y 290-620). */}
       <g className="drift-slow" filter="url(#haze)" opacity="0.75">
@@ -107,3 +111,4 @@ export function Ocean() {
     </>
   )
 }
+
