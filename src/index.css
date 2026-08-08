@@ -1,0 +1,107 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-serif: 'Newsreader', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Cold structure */
+  --color-ink: #05080a;
+  --color-sea-deep: #070e12;
+  --color-sea-mid: #14232c;
+  --color-sea-shallow: #2c4553;
+  --color-sea-surface: #5b7787;
+  --color-sky-high: #a9bac6;
+  --color-sky-low: #dee5ea;
+
+  /* Ice */
+  --color-ice-hi: #eef2f4;
+  --color-ice-mid: #cbd7dd;
+  --color-ice-lo: #94a9b5;
+
+  /* The single accent: warm sand. Marks what the user has touched. */
+  --color-accent: #c2a878;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ink);
+  color: var(--color-ice-mid);
+  font-family: var(--font-mono);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+/* The descent is driven by wheel/drag, never by document scroll. */
+#root {
+  overflow: hidden;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.display {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  letter-spacing: -0.015em;
+}
+
+/* Ambient motion. Long periods, small amplitudes — it should register as
+   weather, not as animation. */
+@keyframes drift {
+  from {
+    transform: translateX(-140px);
+  }
+  to {
+    transform: translateX(140px);
+  }
+}
+
+@keyframes swell {
+  0%,
+  100% {
+    transform: translateX(-28px);
+  }
+  50% {
+    transform: translateX(28px);
+  }
+}
+
+.drift-slow {
+  animation: drift 150s ease-in-out infinite alternate;
+}
+.drift-slower {
+  animation: drift 220s ease-in-out infinite alternate-reverse;
+}
+.swell-a {
+  animation: swell 26s ease-in-out infinite;
+}
+.swell-b {
+  animation: swell 38s ease-in-out infinite reverse;
+}
+
+/* Film grain breaks up the gradients so they don't read as plastic. */
+.grain {
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
