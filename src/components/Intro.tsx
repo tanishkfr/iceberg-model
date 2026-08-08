@@ -29,6 +29,17 @@ export function Intro({ visible, hint }: { visible: boolean; hint: string }) {
               <span className="mt-1 block font-mono text-[11px] tracking-wider text-[#20303a] font-medium">
                 Tanishk · Anushka · Arnav · Janya · Nathan
               </span>
+              <a
+                href="https://www.figma.com/board/zDOtMepKtruxjwPIqYNqn4/Propaganda---Insights-to-Concepts?node-id=116-635&t=O8wjJJD4JsHtkigX-1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pointer-events-auto mt-2.5 inline-flex items-center gap-1.5 font-mono text-[10px] tracking-wide text-[#485c69]/70 transition-colors duration-200 hover:text-[#20303a]"
+              >
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none" className="shrink-0">
+                  <path d="M2 2h8M10 2v8M10 2L2 10" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+                </svg>
+                View FigJam Board
+              </a>
             </div>
           </motion.div>
         )}
