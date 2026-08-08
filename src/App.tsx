@@ -158,7 +158,7 @@ export default function App() {
 
       {/* Height is capped so the centred stack can never rise into the Quick
           Review toggle above it, however short the viewport gets. */}
-      <div className="pointer-events-none fixed top-1/2 right-8 z-30 flex max-h-[calc(100vh-140px)] w-[356px] -translate-y-1/2 flex-col gap-3">
+      <div className="pointer-events-none fixed top-1/2 right-8 z-30 flex max-h-[calc(100vh-100px)] w-[356px] -translate-y-1/2 flex-col justify-center gap-3">
         {/* Panels are direct children of AnimatePresence — wrapping them in a
             plain div leaves the outgoing one mounted forever. */}
         <AnimatePresence mode="wait">

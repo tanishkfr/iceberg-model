@@ -31,7 +31,7 @@ export function DetailPanel({ node, onClose, onFollow }: Props) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 10 }}
       transition={{ duration: 0.5, ease: [0.22, 0.61, 0.36, 1] }}
-      className="pointer-events-auto w-[356px] shrink-0 overflow-y-auto rounded-md border border-white/10 bg-[#080e12]/82 backdrop-blur-md pb-1"
+      className="pointer-events-auto w-[356px] shrink max-h-[calc(100vh-340px)] min-h-0 overflow-y-auto rounded-md border border-white/10 bg-[#080e12]/90 backdrop-blur-md pb-3"
     >
       <div className="flex items-start justify-between gap-4 px-5 pt-5">
         <h2 className="display text-[21px] leading-[1.25] text-ice-hi">{node.title}</h2>

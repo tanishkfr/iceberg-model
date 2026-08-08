@@ -46,7 +46,11 @@ export function LayerPanel({
         </button>
       </div>
 
-      <div className="mt-4 flex flex-col gap-px px-2.5 pb-3">
+      <div
+        className={`mt-3 flex flex-col gap-px px-2.5 pb-2.5 overflow-y-auto transition-all duration-300 ${
+          selectedId ? 'max-h-[210px]' : 'max-h-[calc(70vh-100px)]'
+        }`}
+      >
         {nodes.map((n, i) => {
           const active = selectedId === n.id
           const linked = linkedIds.has(n.id)
