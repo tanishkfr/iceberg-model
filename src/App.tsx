@@ -61,6 +61,11 @@ export default function App() {
   /** Following a chip from the detail panel descends to that node's layer. */
   const follow = useCallback(
     (id: string) => {
+      if (id === 'insights') {
+        unlock(FINALE_INDEX)
+        goTo(FINALE_INDEX)
+        return
+      }
       const node = byId.get(id)
       if (!node) return
       const idx = LAYERS.findIndex((l) => l.id === node.layer)
