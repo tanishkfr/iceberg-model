@@ -8,7 +8,7 @@ import { DetailPanel } from './components/DetailPanel'
 import { DepthRail } from './components/DepthRail'
 import { Intro } from './components/Intro'
 import { InsightsFinale } from './components/InsightsFinale'
-import { QuickReview } from './components/QuickReview'
+import { TopPanels } from './components/TopPanels'
 import type { Link } from './components/Connections'
 
 const NONE: (string | null)[] = LAYERS.map(() => null)
@@ -149,7 +149,7 @@ export default function App() {
 
       <AnimatePresence>{isFinale && <InsightsFinale active={isFinale} />}</AnimatePresence>
 
-      <QuickReview onNavigate={follow} />
+      <TopPanels onNavigate={follow} />
 
       {/* Height is capped so the centred stack can never rise into the Quick
           Review toggle above it, however short the viewport gets. */}
